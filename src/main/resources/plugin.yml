@@ -1,0 +1,34 @@
+name: Tut Plugin
+main: me.greymouth.TutPlugin.TutPlugin
+version: 0.0.2
+
+commands:
+    queue:
+        description: A Queue that holds players in it.
+        usage: /<command> [join/leave/setsize [newsize]]
+        permission-message: You don't have permission to do this.
+    profiles:
+        description: A way to store custom data for players.
+        usage: /<command> [save]
+        permission-message: You don't have permission to do this.
+        
+permissions:
+    queue.*:
+        description: Gives access to queue commands
+        default: true
+        children:
+            queue.join: true
+            queue.leave: true
+            queue.setsize: false
+    queue.join:
+        description: Gives access to join a queue
+        default: true
+    queue.leave:
+        description: Gives access to leave a queue
+        default: true
+    queue.setsize:
+        description: Gives access to set the size of a queue
+        default: op
+    profiles:
+        description: Gives access to the profiles commands
+        default: op
